@@ -1,10 +1,14 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
-import './tailwind.css'
 import { LinksFunction } from '@remix-run/node'
-import './styles/font.css'
+import tailwindStylesheetUrl from './styles/tailwind.css?url'
+import fontStylesheetUrl from './styles/font.css?url'
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }]
+	return [
+		{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+		{ rel: 'stylesheet', href: tailwindStylesheetUrl },
+		{ rel: 'stylesheet', href: fontStylesheetUrl },
+	]
 }
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (
